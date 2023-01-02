@@ -1,0 +1,47 @@
+#include<SPI.h>
+#include<RF24.h>
+#include<nRF24L01.h>
+#include<RF24_config.h>
+RF24 radio(7,8);
+const byte rxAddr[6]="1180";
+
+void setup()
+{	
+  radio.begin();
+  radio.openWritingPipe(rxAddr);
+  Serial.begin(9600);
+  radio.stopListening();// put your setup code here, to run once:
+
+}
+
+void loop()
+{ int a=analogRead(A0),b=analogRead(A1);
+   Serial.println(a);
+   Serial.println(b); 
+  if(a>400 && b<10)
+ { 
+  const char text='1';
+  radio.write(&text,sizeof(text));
+  Serial.println("front");
+ }
+ if(a>900 && b>400)
+ { 
+  const char text='2';
+  radio.write(&text,sizeof(text));
+  Serial.println("right");
+ }
+ if(a>400 && b>900)
+ { 
+  const char text='3';
+  radio.write(&text,sizeof(text));
+  Serial.println("back");
+ }
+ if(a<20 && b>400)
+ { 
+  const char text='4';
+  radio.write(&text,sizeof(text));
+  Serial.println("left");
+ }// put your main code here, to run repeatedly:
+  
+}
+
