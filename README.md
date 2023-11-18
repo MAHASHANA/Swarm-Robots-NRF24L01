@@ -8,3 +8,5 @@ Swarm Robots:
 ![Swarm-Robots](https://user-images.githubusercontent.com/75194490/210286647-894e8da1-b762-490f-8ae4-1e84c761a5ab.jpg)
 
 Components Used: RF24L01 - Transceiver, Arduino Nano - Micro controller, DC Motors - 40(RPM)
+Video Link
+https://drive.google.com/file/d/1iE-mZpc30lZblNthdK6JYsHWASy5LcFF/view?usp=sharing 
